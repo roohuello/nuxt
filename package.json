@@ -1,5 +1,5 @@
 {
-  "name": "nuxt",
+  "name": "schedly",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.15.0",
@@ -14,8 +14,7 @@
     "lint": "biome lint --write ."
   },
   "dependencies": {
-    "@iconify-json/fluent-color": "^1.2.18",
-    "@iconify-json/line-md": "^1.2.11",
+    "@iconify-json/lucide": "^1.2.63",
     "@nuxt/image": "^1.11.0",
     "@nuxt/ui": "^3.3.2",
     "@pinia/nuxt": "^0.11.2",
@@ -27,11 +26,11 @@
     "nuxt": "^4.0.3",
     "nuxt-security": "^2.4.0",
     "vue": "^3.5.19",
-    "zod": "^4.0.17"
+    "zod": "^4.1.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.0",
-    "@nuxtjs/supabase": "^1.6.0",
+    "@biomejs/biome": "^2.2.2",
+    "@nuxtjs/supabase": "^1.6.1",
     "@vite-pwa/nuxt": "^1.0.4",
     "typescript": "^5.9.2",
     "vue-tsc": "^3.0.6"

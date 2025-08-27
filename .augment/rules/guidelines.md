@@ -1,3 +1,7 @@
+---
+type: "always_apply"
+---
+
 # AI Development Rules
 
 Essential coding rules optimized for AI-assisted development with Nuxt 4, Vue 3, TypeScript, and modern web practices.
@@ -108,70 +112,6 @@ Essential coding rules optimized for AI-assisted development with Nuxt 4, Vue 3,
 #### **4. Type-Safe Composables**
 *   **Anti-Pattern:** Not providing proper TypeScript types for composable parameters and return values.
 *   **Best Practice:** Use generics and proper typing to make composables type-safe and reusable across different contexts.
-
----
-
-## Nuxt UI
-
-#### **1. Theming and Customization**
-*   **Anti-Pattern:** Overriding component styles with inline Tailwind CSS classes or scoped CSS. This approach is not reusable, ignores dark mode, and leads to style inconsistencies.
-*   **Best Practice:** Centralize all component style customizations in the `app.config.ts` file. Modify the component's default appearance or create new `variants` to ensure all instances are consistent and theme-aware.
-
-#### **2. Component Composition with Slots**
-*   **Anti-Pattern:** Ignoring purpose-built named slots (like `header`, `footer`, `leading`) and instead rebuilding a component's internal structure manually within the default slot.
-*   **Best Practice:** Leverage the provided named slots whenever possible. This results in cleaner, more declarative code that is easier to read and maintain.
-
-#### **3. Icon Usage**
-*   **Anti-Pattern:** Installing a separate icon library or embedding SVG code directly. This adds unnecessary dependencies and leads to an inconsistent visual style.
-*   **Best Practice:** Use the powerful, built-in icon system provided by Nuxt UI. Standardize on a single icon set (e.g., Lucide) and use the `i-` prefix convention (e.g., `i-lucide-arrow-left`).
-
-#### **4. Managing Overlays (Modals & Slideovers)**
-*   **Anti-Pattern:** Managing the `v-model` state of a global modal directly within the page, making it difficult for nested components to trigger it.
-*   **Best Practice:** Create a dedicated composable or a Pinia store to manage the state of global overlays. This decouples the logic, allowing any component to easily open or close a modal.
-
-#### **5. Form Validation**
-*   **Anti-Pattern:** Writing manual validation logic with complex conditional checks inside component methods.
-*   **Best Practice:** Use a schema-based validation library like Zod with Nuxt UI's `<UForm>` component for declarative and type-safe validation.
-
-#### **6. User Notifications**
-*   **Anti-Pattern:** Displaying errors or success messages using inconsistent methods like `alert()`.
-*   **Best Practice:** Create a dedicated composable that uses Nuxt UI's `useToast` service. This ensures all user-facing notifications are consistent and centrally managed.
-
-#### **7. Data Display Components**
-*   **Anti-Pattern:** Not leveraging Nuxt UI's built-in data components like `<UTable>`, `<UCard>`, `<UBadge>` for consistent data presentation.
-*   **Best Practice:** Use Nuxt UI's data display components with proper slot customization for consistent and accessible data presentation.
-
-#### **8. Responsive Design**
-*   **Anti-Pattern:** Using custom responsive logic instead of Nuxt UI's built-in responsive utilities.
-*   **Best Practice:** Leverage Nuxt UI's responsive breakpoints and components that automatically adapt to different screen sizes.
-
----
-
-## Styling & Design System
-
-#### **1. Color System & Theme Consistency**
-*   **Anti-Pattern:** Using arbitrary Tailwind color utilities (`text-red-500`, `bg-blue-600`, `border-gray-300`) directly in components, which bypasses the theme system and creates inconsistency.
-*   **Best Practice:** Prefer theme-based colors through Nuxt UI's theming system or CSS custom properties. Define colors in `app.config.ts` and reference them consistently.
-
-#### **2. OKLCH Color Format**
-*   **Anti-Pattern:** Using RGB, HSL, or hex color formats which have poor color accuracy and gamut limitations.
-*   **Best Practice:** Always use OKLCH color format for better color accuracy, wider color gamut support, and future-proofing. OKLCH provides more consistent color appearance across different devices.
-
-#### **3. CSS Custom Properties**
-*   **Anti-Pattern:** Hardcoding design tokens (spacing, colors, typography) directly in components or using magic numbers.
-*   **Best Practice:** Define all design tokens as CSS custom properties in your main CSS file. Use a consistent naming convention (e.g., `--color-primary`, `--spacing-md`, `--font-size-base`).
-
-#### **4. Dark Mode Implementation**
-*   **Anti-Pattern:** Treating light mode as default and dark mode as an afterthought, or implementing dark mode with complex CSS overrides.
-*   **Best Practice:** Implement dark mode first as the default theme, with light mode as a variant. Use CSS custom properties with light/dark values and the `color-scheme` property for better system integration.
-
-#### **5. CSS Organization Patterns**
-*   **Anti-Pattern:** Writing long CSS classes, deeply nested selectors, or mixing responsive breakpoints with component styles.
-*   **Best Practice:** Keep CSS classes short and descriptive. Use mobile-first responsive design. Group related styles together and separate concerns. Prefer logical CSS properties over shorthand when clarity is important.
-
-#### **6. Component Styling Strategy**
-*   **Anti-Pattern:** Overriding component styles with complex CSS or inline styles, leading to maintainability issues.
-*   **Best Practice:** Style components through Nuxt UI's theming system when possible. For custom components, use CSS custom properties to make them themeable. Avoid deep component styling overrides that break encapsulation.
 
 ---
 
